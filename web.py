@@ -3,6 +3,8 @@ from functions import get_todos, write_todos
 
 todos = get_todos()
 
+st.set_page_config(layout="wide")
+
 
 def add_todo():
     local_todo = st.session_state["key_new_todo"].strip() + "\n"
@@ -12,7 +14,8 @@ def add_todo():
 
 st.title("my todo app")
 st.subheader("This is my todo app :)")
-st.write("You increase your productivity")
+st.write("<h2>You</h2> increase your <b>productivity</b>",
+         unsafe_allow_html=True)
 
 for index, todo in enumerate(todos):
     checkbox = st.checkbox(todo, key=todo)
